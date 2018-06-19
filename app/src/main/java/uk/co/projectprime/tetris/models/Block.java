@@ -73,11 +73,11 @@ public class Block {
 
 
     public static int getColor (byte value){
-        for (BlockColor color: BlockColor.values()){
+        for (BlockColor colour: BlockColor.values()){
 
-            if(value==color.byteValue){
+            if(value==colour.byteValue){
 
-                return color.rgbValue;
+                return colour.rgbValue;
 
             }
 

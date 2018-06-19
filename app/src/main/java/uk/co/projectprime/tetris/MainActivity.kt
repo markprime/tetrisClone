@@ -25,7 +25,7 @@ var highScore: TextView? = null
         val btnNewGame = findViewById<Button>(R.id.new_game)
         val btnResetScore = findViewById<Button>(R.id.reset_score)
         val btnExit = findViewById<Button>(R.id.exit)
-        highScore = findViewById(R.id.score)
+        highScore = findViewById(R.id.high_score)
 
         btnNewGame.setOnClickListener(this::onBtnNewGameClick)
         btnResetScore.setOnClickListener(this::onBtnResetScoreClick)
@@ -56,7 +56,7 @@ var highScore: TextView? = null
         preferences.clearHighScore()
         Snackbar.make(view, "Score has been successfully reset",
                 Snackbar.LENGTH_SHORT).show()
-        highScore?.text= "${preferences.getHighScore()}"
+        highScore?.text= "High score: " + preferences.getHighScore()
 
 
 

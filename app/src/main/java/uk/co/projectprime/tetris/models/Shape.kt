@@ -171,7 +171,7 @@ startPosition: Int) {
 
 
 
-    abstract fun getFrame(framenumber: Int): Frame
+    abstract fun getFrame(frameNumber: Int): Frame
 
 //    end of Shape class
 }

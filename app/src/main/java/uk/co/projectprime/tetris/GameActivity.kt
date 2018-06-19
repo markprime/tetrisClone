@@ -1,13 +1,13 @@
 package uk.co.projectprime.tetris
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import uk.co.projectprime.tetris.storage.AppPreferences
 import uk.co.projectprime.tetris.models.AppModel
+import uk.co.projectprime.tetris.storage.AppPreferences
 import uk.co.projectprime.tetris.view.TetrisView
 
 class GameActivity : AppCompatActivity() {

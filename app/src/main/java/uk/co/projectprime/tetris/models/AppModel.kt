@@ -18,8 +18,8 @@ class AppModel{
     var currentState:String=Statuses.AWAITING_START.name
 
     private var field: Array<ByteArray> = array2dOfByte(
-            FieldConstants.ROW_COUNT.Value,
-            FieldConstants.COLUMN_COUNT.Value
+            FieldConstants.ROW_COUNT.value,
+            FieldConstants.COLUMN_COUNT.value
         )
 
 
@@ -30,12 +30,11 @@ class AppModel{
 //        end of SetPreferences
     }
 
-    fun getCellStatus(row: Int, column: Int): Byte?{
-
+    fun getCellStatus(row: Int, column: Int): Byte? {
         return field[row][column]
+    }
 
 //        end of getCellStatus
-    }
 
     private fun setCellStatus(row:Int,column:Int,status:Byte?){
 
@@ -95,8 +94,10 @@ class AppModel{
         return if (position.y <0 || position.x < 0){
 
             false
-        } else if (position.x + shape[0].size > FieldConstants.COLUMN_COUNT.Value){
+        } else if (position.y + shape.size > FieldConstants.ROW_COUNT.value){
 
+            false
+        } else if (position.x + shape[0].size > FieldConstants.COLUMN_COUNT.value) {
             false
         }else{
             for (i in 0 until shape.size){
@@ -179,9 +180,9 @@ class AppModel{
 
                     if(!blockAdditionPossible()){
 
-                        currentState = Statuses.OVER.name;
-                        currentBlock = null;
-                        resetField(false);
+                        currentState = Statuses.OVER.name
+                        currentBlock = null
+                        resetField(false)
 
                     }
                 }
@@ -199,11 +200,11 @@ class AppModel{
     }
 
 
-    private fun resetField (emphemeralCellsOnly:Boolean=true){
+    private fun resetField (ephemeralCellsOnly:Boolean=true){
 
-        for (i in 0 until FieldConstants.ROW_COUNT.Value){
-            (0 until FieldConstants.COLUMN_COUNT.Value).filter{
-                !emphemeralCellsOnly||field[i][it] == CellConstants.EPHEMERAL.value
+        for (i in 0 until FieldConstants.ROW_COUNT.value){
+            (0 until FieldConstants.COLUMN_COUNT.value).filter{
+                !ephemeralCellsOnly||field[i][it] == CellConstants.EPHEMERAL.value
             }.forEach{
                 field[i][it]=CellConstants.EMPTY.value
             }
@@ -235,7 +236,7 @@ class AppModel{
 
         for(i in 0 until field.size){
 
-            var emptyCells=0;
+            var emptyCells=0
 
             for(j in 0 until field[i].size){
 
@@ -296,7 +297,7 @@ class AppModel{
 
                 for(m in 0 until field[j].size){
 
-                    setCellStatus(j+1,m,getCellStatus(j, m))
+                    setCellStatus(j +1,m,getCellStatus(j, m))
                 }
             }
 

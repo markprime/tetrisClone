@@ -8,8 +8,6 @@ import android.graphics.Color
 import android.graphics.RectF
 import android.os.Handler
 import android.os.Message
-import android.os.Parcel
-import android.os.Parcelable
 import android.util.AttributeSet
 import android.widget.Toast
 
@@ -93,8 +91,8 @@ class TetrisView: View {
         drawFrame(canvas)
 
         if(model !=null){
-            for(i in 0 until FieldConstants.ROW_COUNT.Value){
-                for(j in 0 until FieldConstants.COLUMN_COUNT.Value){
+            for(i in 0 until FieldConstants.ROW_COUNT.value){
+                for(j in 0 until FieldConstants.COLUMN_COUNT.value){
                     drawCell(canvas,i,j)
                 }
             }
@@ -117,7 +115,7 @@ class TetrisView: View {
             }else{
                 Block.getColor(cellStatus as Byte)
             }
-            drawCell(canvas, row, col as Int)
+            drawCell(canvas, row, col)
         }
 
 
@@ -145,12 +143,12 @@ class TetrisView: View {
 
         super.onSizeChanged(width,height,previousWidth,previousHeight)
 
-        val cellWidth=(width - 2 * FRAME_OFFSET_BASE) / FieldConstants.COLUMN_COUNT.Value
-        val cellHeight=(height - 2 * FRAME_OFFSET_BASE) / FieldConstants.ROW_COUNT.Value
+        val cellWidth=(width - 2 * FRAME_OFFSET_BASE) / FieldConstants.COLUMN_COUNT.value
+        val cellHeight=(height - 2 * FRAME_OFFSET_BASE) / FieldConstants.ROW_COUNT.value
         val n = Math.min(cellWidth,cellHeight)
         this.cellSize= Dimension(n,n)
-        val offsetX=(width-FieldConstants.COLUMN_COUNT.Value*n)/2
-        val offsetY=(height-FieldConstants.ROW_COUNT.Value*n)/2
+        val offsetX=(width-FieldConstants.COLUMN_COUNT.value*n)/2
+        val offsetY=(height-FieldConstants.ROW_COUNT.value*n)/2
         this.frameOffset= Dimension(offsetX,offsetY)
 
 
@@ -172,7 +170,7 @@ private class ViewHandler(private val owner: TetrisView):Handler(){
             if(owner.model !=null){
                 if(owner.model!!.isGameOver()){
                     owner.model?.endGame()
-                    Toast.makeText(owner.activity, "Game Over", Toast.LENGTH_LONG).show();
+                    Toast.makeText(owner.activity, "Game Over", Toast.LENGTH_LONG).show()
                 }
                 if(owner.model!!.isGameActive()){
                     owner.setGameCommandWithDelay(AppModel.Motions.DOWN)

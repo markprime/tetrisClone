@@ -1,6 +1,6 @@
 package uk.co.projectprime.tetris.constants
 
-enum class FieldConstants(val Value: Int){
+enum class FieldConstants(val value: Int){
 
     COLUMN_COUNT(10), ROW_COUNT(20);
 

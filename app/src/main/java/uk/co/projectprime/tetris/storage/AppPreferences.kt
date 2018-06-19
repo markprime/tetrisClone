@@ -13,9 +13,9 @@ class AppPreferences(ctx: Context){
 //    end of saveHighScore method
     }
 
-    fun getHighScore() {
+    fun getHighScore():Int {
 
-        data.getInt("HIGH_SCORE", 0)
+        return data.getInt("HIGH_SCORE", 0)
 
 //        end of getHighScore method
     }
