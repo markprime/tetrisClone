@@ -31,7 +31,7 @@ class AppModel{
     }
 
     fun getCellStatus(row: Int, column: Int): Byte? {
-        return field[row][column]
+         return field[row][column]
     }
 
 //        end of getCellStatus

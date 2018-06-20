@@ -39,7 +39,7 @@ class GameActivity : AppCompatActivity() {
         tetrisView.setModel(appModel)
 
         tetrisView.setOnTouchListener(this::onTetrisViewTouch)
-        btnRestart.setOnClickListener(this::btnRestartClick)
+        btnRestart.setOnClickListener (this::btnRestartClick)
 
         updateHighScore()
         updateCurrentScore()
