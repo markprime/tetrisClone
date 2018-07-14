@@ -31,7 +31,7 @@ class AppModel{
     }
 
     fun getCellStatus(row: Int, column: Int): Byte? {
-        return field[row][column]
+         return field[row][column]
     }
 
 //        end of getCellStatus
@@ -362,7 +362,7 @@ class AppModel{
 
     enum class Motions{
 
-        LEFT, RIGHT,DOWN, ROTATE
+        LEFT, RIGHT, DOWN, ROTATE
 
 
 //        end of Motions
