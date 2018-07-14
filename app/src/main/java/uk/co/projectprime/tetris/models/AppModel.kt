@@ -362,7 +362,7 @@ class AppModel{
 
     enum class Motions{
 
-        LEFT, RIGHT,DOWN, ROTATE
+        LEFT, RIGHT, DOWN, ROTATE
 
 
 //        end of Motions
